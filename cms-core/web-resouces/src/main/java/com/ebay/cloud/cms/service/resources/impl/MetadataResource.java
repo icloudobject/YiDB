@@ -152,6 +152,19 @@ public class MetadataResource implements IMetadataResource {
 		}
 		return new CMSResponse();
 	}
+	
+    @Path("/{reponame}")
+    @DELETE
+    public CMSResponse deleteRepository(@Context UriInfo uriInfo, @HeaderParam("X-CMS-PRIORITY") final String priority,
+            @PathParam("reponame") String reponame, @Context HttpServletRequest request) {
+        try {
+            cmsServer.deleteRepository(CMSResourceUtils.parsePriority(priority), reponame);
+        } catch (Throwable e) {
+            logger.error("Error when delete Repository ", e);
+            handleException(e);
+        }
+        return new CMSResponse();
+    }
 
 	@POST
 	public CMSResponse createRepository(@Context UriInfo uriInfo, @HeaderParam("X-CMS-PRIORITY") final String priority,
