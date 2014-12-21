@@ -5,7 +5,7 @@
   <parent>
     <artifactId>cms-core</artifactId>
     <groupId>com.ebay.cloud.cms</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
   <artifactId>cms-expression</artifactId>
   <name>cms-expression</name>
